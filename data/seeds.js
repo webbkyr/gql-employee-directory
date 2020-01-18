@@ -9,9 +9,7 @@ const employee = id => {
   }
 }
 
-const employees = function(pageSize = 25) {
-  return Array(pageSize).fill().map(() => employee())
-}
+const employees = [ employee(1), employee(2), employee(3) ]
 
 module.exports = {
   employee: employee,

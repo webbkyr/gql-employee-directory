@@ -1,0 +1,26 @@
+
+scalar Date
+
+type Query {
+  info: String!,
+  employees: [Employee!]!,
+  employee(id: Int!): Employee
+}
+
+type Mutation {
+  createEmployee(employeeInput: CreateEmployeeInput!): Employee!
+}
+
+type Employee {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  age: Int!
+}
+
+input CreateEmployeeInput {
+  firstName: String!
+  lastName: String!
+  age: Int!
+}
+

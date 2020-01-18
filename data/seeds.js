@@ -9,7 +9,7 @@ const employee = id => {
   }
 }
 
-const employees = [ employee(1), employee(2), employee(3) ]
+let employees = [ employee(1), employee(2), employee(3) ]
 
 module.exports = {
   employee: employee,

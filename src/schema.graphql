@@ -8,7 +8,9 @@ type Query {
 }
 
 type Mutation {
-  createEmployee(employeeInput: CreateEmployeeInput!): Employee!
+  createEmployee(employeeInput: EmployeeInput!): MutationResponse!,
+  updateEmployee(id: Int!, employeeInput: EmployeeInput!): MutationResponse!,
+  deleteEmployee(id: Int!): MutationResponse!
 }
 
 type Employee {
@@ -18,9 +20,16 @@ type Employee {
   age: Int!
 }
 
-input CreateEmployeeInput {
-  firstName: String!
-  lastName: String!
-  age: Int!
+input EmployeeInput {
+  firstName: String
+  lastName: String
+  age: Int
+}
+
+type MutationResponse {
+  success: Boolean!
+  code: Int!
+  message: String
+  employee: Employee
 }
 

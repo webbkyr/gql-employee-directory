@@ -1,0 +1,14 @@
+{
+  "name": "employee-directory-node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "faker": "^4.1.0",
+    "graphql-yoga": "^1.18.3"
+  }
+}

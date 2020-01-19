@@ -1,24 +1,26 @@
 const { GraphQLServer } = require("graphql-yoga");
-const { employee, employees } = require("../data/seeds")
+import { employee, employees } from './data/seeds'
+import { Employee, MutationResponse } from './types/employee';
 
 const resolvers = {
   Query: {
     info: () => `Employee directory API`,
     employees: () => employees,
-    employee: (_, { id }) => employee(id)
+    employee: (_: any, { id }) => employee(id)
   },
   Mutation: {
-    createEmployee: (_, { employeeInput }) => {
-      const newEmployee = {
+    createEmployee: (_, { employeeInput }): MutationResponse => {
+      const newEmployee: Employee = {
         id: employees.length + 1,
         firstName: employeeInput.firstName,
         lastName: employeeInput.lastName,
         age: employeeInput.age
       }
       employees.push(newEmployee)
-      return { success: true, employee: newEmployee }
+      return { success: true, code: 201, employee: newEmployee }
     },
-    updateEmployee: (_, { id, employeeInput }) => {
+
+    updateEmployee: (_, { id, employeeInput }): MutationResponse => {
       const { firstName, lastName, age } = employeeInput
       const employee = employees.find(emp => emp.id === id)
       
@@ -27,10 +29,11 @@ const resolvers = {
       employee.age = age || employee.age
       return { success: true, code: 200, employee }
     },
-    deleteEmployee: (_, { id }) => {
+
+    deleteEmployee: (_: any, { id }): MutationResponse => {
       const previousCount = employees.length
       const employeeIdx = employees.findIndex(emp => emp.id === id)
-      let removedEmployee = {};
+      let removedEmployee: Employee;
 
       if (employeeIdx === -1) {
         return { success: false, code: 404, message: `Employee ${id} was not found` }

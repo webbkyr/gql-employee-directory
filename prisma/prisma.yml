@@ -1,0 +1,7 @@
+endpoint: ''
+datamodel: datamodel.prisma
+databaseType: relational
+
+generate:
+    - generator: typescript-client
+      output: ../src/generated/prisma-client

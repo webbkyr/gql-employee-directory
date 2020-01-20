@@ -6,7 +6,7 @@ const resolvers = {
   Query: {
     info: () => `Employee directory API`,
     employees: () => employees,
-    employee: (_: any, { id }) => employee(id)
+    employee: (_, { id }) => employee(id)
   },
   Mutation: {
     createEmployee: (_, { employeeInput }): MutationResponse => {

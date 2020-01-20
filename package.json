@@ -1,11 +1,12 @@
 {
   "name": "employee-directory-node",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "license": "MIT",
   "scripts": {
     "start": "ts-node src/index.ts",
-    "dev": "ts-node-dev --no-deps --transpileOnly --ignore-watch node_modules src/index.ts"
+    "dev": "ts-node-dev --no-deps --transpileOnly --ignore-watch node_modules src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "@types/faker": "^4.1.9",

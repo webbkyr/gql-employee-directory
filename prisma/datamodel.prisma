@@ -1,8 +1,0 @@
-type Employee {
-  id:          ID!       @id
-  firstName:   String!
-  lastName:    String!
-  age:         Int!
-  createdAt:   DateTime! @createdAt
-  updatedAt:   DateTime! @updatedAt
-}
